@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>TODO</title>
+      <script src="js.js"></script>
+    </head>
+    <body>
+      <div id="results">
+
+      </div>
+      <button id="todo" onclick="FetchTodo()">Show all Todos</button>
+    </body>
+    <script>
+      // fetch todo function
+
+      function FetchTodo(){
+        // http request
+
+        fetch("http://jsonplaceholder.typicode.com/todos/1")
+        .then(function(data){
+          console.log(data)
+          return data.json()
+        })
+        .then(function(data){
+          var results = document.getElementById('results')
+          results.innerHTML = '<p>1. Do Dishes</p><p>2. Make bed</p><p>3. Do laundry</p><p>4. Check E-mail</p><p>5. Workout</p><p>6. Family timr</p><p>7. Homework</p><p>8. Get gas</p><p>9. Wash car</p><p>10. Mow lawn</p>'
+          console.log(data)
+      })
+      .catch(function(error){
+        console.log(error)
+      })
+    }
+    </script>
+</html>
